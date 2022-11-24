@@ -19,7 +19,7 @@
     min-height: 100vh;
     grid-template-columns: repeat(4, 90px);
     grid-template-rows: minmax(100px, auto) repeat(5, 60px);
-  }
+    }
 
   .calculator-grid > button {
     font-size: 2rem;

@@ -20,7 +20,7 @@ clear() {
 }
 
 delete() {
-
+    this.lower = this.lower.toString().slice(0, -1)
 }
 
 appendNumber(number) {
@@ -41,7 +41,7 @@ chooseOperation(operation) {
 compute () {
     let computation
     const upper = parseFloat(this.upper)
-    const lower = parseFloat(this.lower) //covert string to number//
+    const lower = parseFloat(this.lower) //convert string to number//
     if (isNaN(upper) || isNaN(lower)) return //prevent the below code from running if none of the value is a number//
     switch (this.operation) {
         case "+":
@@ -88,7 +88,17 @@ operationBtn.forEach(button => {
     })
   })
 
-equalBtn.addEventListener("click", button => {
+equalBtn.addEventListener("click", () => {
     calculator.compute()
+    calculator.updateDisplay()
+})
+
+allClearBtn.addEventListener("click", () => {
+    calculator.clear()
+    calculator.updateDisplay()
+})
+
+deleteBtn.addEventListener("click", () => {
+    calculator.delete()
     calculator.updateDisplay()
 })

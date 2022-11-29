@@ -67,10 +67,11 @@ compute () {
 updateDisplay() {
     this.lowerTxt.innerText = this.lower
     if (this.operation != null) {
-        tthis.upperTxt.innerText =
-          `${(this.previousOperand)} ${this.operation}`
+        this.upperTxt.innerText =
+          `${(this.upper)} ${this.operation}`
+      } else {
+        this.upperTxt.innerText = ''
       }
-    
 }
 }
 

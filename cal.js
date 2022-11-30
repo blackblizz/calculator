@@ -7,14 +7,14 @@ const upperTxt= document.querySelector('[data-upper]');
 const lowerTxt= document.querySelector('[data-lower]');
 
 class Calculator {
-    constructor(upperTxt, lowerTxt) { //to set variable & determine where to place the display text//
-        this.upperTxt = upperTxt
+    constructor(upperTxt, lowerTxt) { //place them here so later can determine where to place the display text//
+        this.upperTxt = upperTxt //to set variables that are going to be used below//
         this.lowerTxt = lowerTxt
         this.clear() //run this function as soon as a new cal is created to set things to default//
 }
 
-clear() {
-    this.upper = ''
+clear() { //to set all variables equal to nothing//
+    this.upper = '' 
     this.lower = ''
     this.operation = undefined
 }
@@ -25,13 +25,14 @@ delete() {
 
 appendNumber(number) {
     if (number === '.' && this.lower.includes('.')) return //to prevent consecutive '.'//
-    this.lower = this.lower.toString() + number.toString() //numbers show up at the end of number string//
+    this.lower = this.lower.toString() + number.toString() 
+    //convert numbers to string so that numbers can show up at the end instead of adding them tgt//
 }
 
 chooseOperation(operation) {
     if (this.lower === '') return //when lower row is empty, do not execute below procedures//
-    if (this.upper !== '') {
-        this.compute()
+    if (this.upper !== '') { //if there's a value on the upper row,//
+        this.compute()       //allow operation buttons to be clicked & compute//
     }
     this.operation = operation
     this.upper = this.lower //whenever operation button is clicked, move the value to upper row//
@@ -66,10 +67,10 @@ compute () {
 
 updateDisplay() {
     this.lowerTxt.innerText = this.lower
-    if (this.operation != null) {
+    if (this.operation != null) { //whenever an operation button is clicked,//
         this.upperTxt.innerText =
-          `${(this.upper)} ${this.operation}`
-      } else {
+          `${(this.upper)} ${this.operation}` //attach it to the value and display it on the upper row//
+      } else { //if there's no operation button being clicked, i.e. clicking equal, upper row will be cleared//
         this.upperTxt.innerText = ''
       }
 }

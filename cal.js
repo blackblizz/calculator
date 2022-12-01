@@ -57,7 +57,7 @@ compute () {
         case "÷":
             computation = upper / lower
             break;
-        defalut:
+        default:
         return
     }
     this.lower = computation //what will happen after computation is done//
